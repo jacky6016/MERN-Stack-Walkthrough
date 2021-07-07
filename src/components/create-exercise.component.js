@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -27,10 +28,15 @@ export default class CreateExercises extends Component {
 
     // A React Lifecycle method: automatically called before anything is rendered on the page
     componentDidMount() {
-        this.setState({
-            users: ['test user'],
-            username: 'test user'
-        })
+        axios.get('http://localhost:5000/users/')
+            .then(res => {
+                if (res.data.length > 0) {
+                    this.setState({
+                        users: res.data.map(user => user.username),
+                        username: res.data[0].username
+                    })
+                }
+            })
     }
 
     // define state-changing functions
@@ -69,11 +75,14 @@ export default class CreateExercises extends Component {
             username: this.state.username,
             description: this.state.description,
             duration: this.state.duration,
-            data: this.state.date
+            date: this.state.date
         }
 
         console.log(exercise);
-
+        
+        axios.post('http://localhost:5000/exercises/add/', exercise)
+            .then(res => console.log(res.data));
+        
         // go back to the home page
         window.location = '/';
     }
