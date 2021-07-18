@@ -1,5 +1,8 @@
+# Introduction
+This is a exercise Tracker Web App that allows users to log their exercises. It is built with the MERN stack.
+
 # Acknowledgement
-This is a repository containing learning notes and code from the [Learn the MERN Stack - Full Tutorial (MongoDB, Express, React, Node.js)](https://www.youtube.com/watch?v=7CqJlxBYj-M).
+This repository contains learning notes and code from the [Learn the MERN Stack - Full Tutorial (MongoDB, Express, React, Node.js)](https://www.youtube.com/watch?v=7CqJlxBYj-M).
 
 # Run the Project
 - Backend server:  Run `npm start` under the `backend` folder, the default URL is `http://localhost:5000`
